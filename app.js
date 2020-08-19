@@ -91,12 +91,22 @@ for (nav of listOfNav) {
 
 
 window.addEventListener('scroll',()=>{
-	for(sec of sections){
+	for(let i = 0; i < sections.length; i++){
 		
-		var rect = sec.getBoundingClientRect();
+		var rect = sections[i].getBoundingClientRect();
 		y = Math.floor(rect.top);
 		h = Math.floor(rect.height);
-		console.log(`${sec.getAttribute('data-nav')} ${y},${h},${sec.offsetTop}`)
+		
+		if(Math.abs(y) > .5*h){
+			sections[i].classList.remove('your-active-class');
+			if(i <= sections.length-2){
+				sections[i+1].classList.add('your-active-class');
+			}
+			if(i == 1){
+				sections[1].classList.remove('your-active-class');		sections[0].classList.add('your-active-class');
+			}
+			
+		}
 	}
 	
 	
