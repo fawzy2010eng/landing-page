@@ -76,87 +76,27 @@ for (nav of listOfNav) {
 
 // Set sections as active
 
-//for(nav of listOfNav){
-//	nav.addEventListener('click',function(){
-//		const data-nav = this.getAttribute('data-nav');		
-//		for(section of sections){
-//			if(section.getAttribute('data-nav') == data-nav){
-//				section.classList.add('your-active-class');				
-//			}else{
-//				section.classList.remove('your-active-class');				
-//			}
-//		}
-//	})
-//}
-
-
+let arrOfSpace= [];
 window.addEventListener('scroll',()=>{
+	arrOfSpace = [];
 	for(let i = 0; i < sections.length; i++){
 		
 		var rect = sections[i].getBoundingClientRect();
 		y = Math.floor(rect.top);
 		h = Math.floor(rect.height);
+		arrOfSpace.push(Math.abs(y));
 		
-		if(Math.abs(y) > .5*h){
+	}
+	for(let i = 0; i < sections.length; i++){
+		if(i == arrOfSpace.indexOf(Math.min(...arrOfSpace))){				sections[i].classList.add('your-active-class');
+			listOfNav[i].classList.add('active');												 	
+		}else{
 			sections[i].classList.remove('your-active-class');
-			if(i <= sections.length-2){
-				sections[i+1].classList.add('your-active-class');
-			}
-			if(i == 1){
-				sections[1].classList.remove('your-active-class');		sections[0].classList.add('your-active-class');
-			}
-			
+			listOfNav[i].classList.remove('active')
 		}
 	}
+		
 	
-	
-	
-	
-	
-//	const sec1 = document.getElementById("section1");
-//	const sec2 = document.getElementById("section2");
-//	const sec3 = document.getElementById("section3");
-//	
-//	if(window.pageYOffset <= sec2.offsetTop){
-//		for(section of sections){
-//			section.classList.remove('your-active-class')
-//		}
-//		sec1.classList.add('your-active-class');
-//		for(nav of listOfNav){
-//			if( nav.getAttribute('data-nav') == sec1.getAttribute('data-nav')){
-//				nav.style.color = 'red'
-//			}else{
-//				nav.style.color = 'white'
-//			}
-//		}
-//		
-//	}
-//	else if(window.pageYOffset <= sec3.offsetTop){
-//		for(section of sections){
-//			section.classList.remove('your-active-class')
-//		}
-//		sec2.classList.add('your-active-class');
-//		for(nav of listOfNav){
-//			if( nav.getAttribute('data-nav') == sec2.getAttribute('data-nav')){
-//				nav.style.color = 'red'
-//			}else{
-//				nav.style.color = 'white'
-//			}
-//		}
-//	}
-//	else{
-//		for(section of sections){
-//			section.classList.remove('your-active-class')
-//		}
-//		sec3.classList.add('your-active-class')
-//		for(nav of listOfNav){
-//			if( nav.getAttribute('data-nav') == sec3.getAttribute('data-nav')){
-//				nav.style.color = 'red'
-//			}else{
-//				nav.style.color = 'white'
-//			}
-//		}
-//	}
 	
 })
 
