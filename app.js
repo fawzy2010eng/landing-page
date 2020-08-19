@@ -49,19 +49,33 @@ const unOrderedList = document.querySelector('ul');
  * 
 */
 
+
+
 // Build menu
 let list ;
 let link;
+//creating virtual div
 const virDiv = document.createElement('div');
 for(let i = 0; i < sections.length; i++){
+	//creaing li item
 	list = document.createElement('li');
+	//adding link to li item
 	link = document.createElement('a');
+	//adding attribute to the link
 	link.setAttribute('data-nav',sections[i].getAttribute('data-nav'));
 	link.textContent = sections[i].getAttribute('data-nav');
+	//appending link to the list
 	list.appendChild(link);
+	//appending the list to the virtual div to improve performance 
 	virDiv.appendChild(list);
 }
+	//appending the virtual div to the unordered list once 
 	unOrderedList.appendChild(virDiv);
+
+
+
+
+
 
 // Scroll to section on link click"use strict";
 
@@ -84,10 +98,13 @@ window.addEventListener('scroll',()=>{
 		var rect = sections[i].getBoundingClientRect();
 		y = Math.floor(rect.top);
 		h = Math.floor(rect.height);
+		//adding the absolute space between the view and the section to array
 		arrOfSpace.push(Math.abs(y));
 		
 	}
+	//get the min value in the array and this should be the active section 
 	let item = arrOfSpace.indexOf(Math.min(...arrOfSpace));
+	//looping through the navs and sections to remove and add active class 
 	for(let i = 0; i < sections.length; i++){
 		if(i == item){				
 			sections[i].classList.add('your-active-class');
@@ -97,7 +114,4 @@ window.addEventListener('scroll',()=>{
 			listOfNav[i].classList.remove('active')
 		}
 	}
-		
-	
-	
 })
