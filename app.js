@@ -87,8 +87,10 @@ window.addEventListener('scroll',()=>{
 		arrOfSpace.push(Math.abs(y));
 		
 	}
+	let item = arrOfSpace.indexOf(Math.min(...arrOfSpace));
 	for(let i = 0; i < sections.length; i++){
-		if(i == arrOfSpace.indexOf(Math.min(...arrOfSpace))){				sections[i].classList.add('your-active-class');
+		if(i == item){				
+			sections[i].classList.add('your-active-class');
 			listOfNav[i].classList.add('active');												 	
 		}else{
 			sections[i].classList.remove('your-active-class');
@@ -99,13 +101,3 @@ window.addEventListener('scroll',()=>{
 	
 	
 })
-
-
-
-
-
-
-
-
-
-
