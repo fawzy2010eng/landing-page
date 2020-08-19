@@ -137,3 +137,17 @@ document.querySelector('.ups').addEventListener('click',()=>{
 
 
 
+//adding collapse function to sections
+//call the h2 item in section
+const hs = document.querySelectorAll('section h2');
+for(let i = 0; i < hs.length; i++){
+	
+	hs[i].addEventListener('click',function(){
+		let paragraphs = this.parentElement.querySelectorAll('p');
+		for(paragraph of paragraphs){
+			paragraph.classList.toggle('active')
+		}
+	})
+
+
+}
