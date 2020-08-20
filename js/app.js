@@ -156,6 +156,19 @@ for(let i = 0; i < hs.length; i++){
 
 }
 
+//side menu button show
+document.querySelector('button').addEventListener('click',()=>{
+	document.querySelector('.sidenav').style.width = '300px';
+	document.querySelector('main').style.marginLeft = '300px'
+	
+})
+//side menu button hide
+document.querySelector('ul i').addEventListener('click',()=>{
+	document.querySelector('.sidenav').style.width = '0';
+	document.querySelector('main').style.marginLeft = '0'
+	
+})
+
 
 
 

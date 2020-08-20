@@ -32,17 +32,51 @@ a{
 a.active{
 	color: rgb(136,203,171)!important;
 }
+button{
+	top: 5rem;
+	left: 5rem;
+	display: block;
+	color: white;
+	margin-left: 5rem;
+	margin-top: 5rem;
+}
+button i{
+	font-size: 5rem;
+}
+.sidenav{
+	height: 100%;
+	width: 0;
+	position: fixed;
+	z-index: 1;
+	overflow-x: hidden;
+	top: 0;
+	left: 0;
+	background-color: white;
+	transition: 0.5s;
+	padding-top: 60px;
+}
 ul{
 	background-color: transparent;
 	height: 0;
+	display: flex;
+	flex-direction: column;
+	list-style: none
+}
+ul i{
+	font-size: 2rem;
+	margin-right: 5rem;
+	cursor: pointer;
+	color: rgb(136,203,171)
 }
 ul div{
 	display: flex;
+	flex-direction: column
 }
 ul li{
 	margin-top: 5rem;
 	cursor: pointer;
 	font-size: 2rem;
+	margin-top: 1rem
 }
 ul li:first-of-type{
 	margin-right: 3rem;
@@ -54,15 +88,7 @@ ul li:not(:first-of-type){
 ul li:last-of-type{
 	margin-left: 0;
 	margin-right: 5rem;
-}
-@media (max-width:991px){
-	
-	ul div{
-		display: inline-block;
-	}
-	ul div li{
-		margin-top: .5rem;
-	}
+
 }
 /* Typeography General*/
 h1 {
