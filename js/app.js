@@ -56,26 +56,29 @@ let list ;
 let link;
 //creating virtual div
 const virDiv = document.createElement('div');
-for(let i = 0; i < sections.length; i++){
-	//creaing li item
-	list = document.createElement('li');
-	//adding link to li item
-	link = document.createElement('a');
-	//adding attribute to the link
-	link.setAttribute('data-nav',sections[i].getAttribute('data-nav'));
-	link.textContent = sections[i].getAttribute('data-nav');
-	//appending link to the list
-	list.appendChild(link);
-	//appending the list to the virtual div to improve performance 
-	virDiv.appendChild(list);
-}
+//creating nav menu and appending it into the ul
+const creatingNav = ()=>{
+	for(let i = 0; i < sections.length; i++){
+		//creaing li item
+		list = document.createElement('li');
+		//adding link to li item
+		link = document.createElement('a');
+		//adding attribute to the link
+		link.setAttribute('data-nav',sections[i].getAttribute('data-nav'));
+		link.textContent = sections[i].getAttribute('data-nav');
+		//appending link to the list
+		list.appendChild(link);
+		//appending the list to the virtual div to improve performance 
+		virDiv.appendChild(list);
+	}
 
 
 	//appending the virtual div to the unordered list once 
 	unOrderedList.appendChild(virDiv);
 	//	adding active class to the first item by default
 	document.querySelector('ul div li a').classList.add('active');
-
+}
+creatingNav();
 
 
 
@@ -85,7 +88,7 @@ for(let i = 0; i < sections.length; i++){
 
 const listOfNav = document.querySelectorAll('li a');
 
-for (nav of listOfNav) {
+for (let nav of listOfNav) {
   nav.addEventListener('click', function () {
     const navitem = parseInt(this.getAttribute('data-nav').slice(7)) - 1;
     window.scrollTo(0, sections[navitem].offsetTop + 10);
