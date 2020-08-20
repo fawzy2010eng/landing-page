@@ -69,8 +69,12 @@ for(let i = 0; i < sections.length; i++){
 	//appending the list to the virtual div to improve performance 
 	virDiv.appendChild(list);
 }
+
+
 	//appending the virtual div to the unordered list once 
 	unOrderedList.appendChild(virDiv);
+	//	adding active class to the first item by default
+	document.querySelector('ul div li a').classList.add('active');
 
 
 
