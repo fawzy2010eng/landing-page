@@ -77,8 +77,12 @@ h2 {
 p {
     line-height: 1.6em;
     color: #eee;
+	display: none;
+	overflow: hidden;
 }
-
+p.active{
+	display: block
+}
 /* ---- Layout Rules ---- */
 main {
     margin: 10vh 1em 10vh;
@@ -241,7 +245,9 @@ section:nth-of-type(3n + 1) .landing__container::after {
     opacity: 0;
     transition: ease 0.5s all;
 }
-
+section h2{
+	cursor: pointer;
+}
 
 /* ---- Theme State Rules ---- */
 /* Section Active Styles */
@@ -261,6 +267,9 @@ section.your-active-class .landing__container::after {
     animation: rotate 5s linear 0s infinite forwards reverse;
 }
 
+section .active{
+	
+}
 /* Section Active Styles Keyframe Animations */
 @keyframes rotate {
 	from {
