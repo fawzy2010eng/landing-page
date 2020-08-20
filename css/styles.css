@@ -30,11 +30,14 @@ a{
 	text-decoration: none;
 }
 a.active{
-	color: rgb(136,203,171);
+	color: rgb(136,203,171)!important;
 }
 ul{
 	background-color: transparent;
 	height: 0;
+}
+ul div{
+	display: flex;
 }
 ul li{
 	margin-top: 5rem;
@@ -52,7 +55,15 @@ ul li:last-of-type{
 	margin-left: 0;
 	margin-right: 5rem;
 }
-
+@media (max-width:991px){
+	
+	ul div{
+		display: inline-block;
+	}
+	ul div li{
+		margin-top: .5rem;
+	}
+}
 /* Typeography General*/
 h1 {
     font-family: 'Fira Sans', sans-serif;
